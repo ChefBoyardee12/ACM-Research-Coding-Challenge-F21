@@ -12,12 +12,12 @@ Firstly, the data was cleaned then parsed. The data that is given is rather nois
 
 ## Results and Analysis
 The program calculated the sentiment scores through different categories as follows: 
-  - The overall sentiment score of the text through AFINN was `19.0` and `3.19269` through TextBlob, both meaning `positive`. This was done by summing the value of every word in the text together.
+  - The overall sentiment score of the text through AFINN was `16.0` and `3.19269` through TextBlob, both meaning `positive`. This was done by summing the value of every word in the text together.
 
 
-  -  Further results indicate that the average sentence score through AFINN was `0.59375` and `0.09977`through TextBlob, both meaning `slightly positive`. 
+  -  Further results indicate that the average sentence score through AFINN was `0.5` and `0.09977`through TextBlob, both meaning `slightly positive`. 
 
-  - Finally, the average word scores for AFINN and TextBlob were `0.02802` and `0.00471` respectively, both meaning `barely positive but essentially neutral`. 
+  - Finally, the average word scores for AFINN and TextBlob were `0.0236` and `0.00471` respectively, both meaning `barely positive but essentially neutral`. 
   
 At first, I felt that these scores were not what I expected, but further deliberation induced me to agree with the results. I was initially inclined to disagree with the outcome due to the extreme negativity of the first paragraph, denoting a fierce argument between two characters with words such as "rage", "dreary chaos", "bleed", and "murderer". However, the sheer positivity of the last paragraph, describing an individual with an "excellent constitution", "ingenious" mind, "sound understanding and solid judgement", and shown a "good deal of respect". With the overwhelming positivity of the latter half of the text, the outcome was shifted to being positive overall. 
 
