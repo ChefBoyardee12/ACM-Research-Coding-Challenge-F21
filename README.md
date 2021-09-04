@@ -1,32 +1,47 @@
-# ACM Research Coding Challenge (Fall 2021)
+# **ACM Research Coding Challenge (Fall 2021) - Shahrukh Showkath**
 
-## [](https://github.com/ACM-Research/Coding-Challenge-F21#no-collaboration-policy)No Collaboration Policy
+## Introduction to Approach
 
-**You may not collaborate with anyone on this challenge.**  You  _are_  allowed to use Internet documentation. If you  _do_  use existing code (either from Github, Stack Overflow, or other sources),  **please cite your sources in the README**.
+When conducting sentiment analysis, the three main methods of analysis are rule-based, automatic, or hybrid. When using an automatic or hybrid model, it is imperative to train the data, or to teach the model to associate an input with a corresponding sentiment output. Due to the lack of trained data, it is difficult to teach the model how to evaluate sentiments in text. Thus, a rule-based model that uses man made rules to analyze the text was used for this project. To do this, AFINN lexicon and TextBlob library were used. 
 
-## [](https://github.com/ACM-Research/Coding-Challenge-F21#submission-procedure)Submission Procedure
+## Background On Tools Used
+The AFINN lexicon is a list of over 3,300 positive negative words that have an assigned value ranging from -5 to 5, with the lower end being words classified as more negative and the higher end to be classified as more positive. The TextBlob library is similar in that it has a normalized polarity score scale with a range of -1.0 to 1.0. However, the TextBlob library additionally provides a subjectivity score ranging from 0.0 to 1.0, with 0.0 being very objective and 1.0 being very subjective. Both of these tools were used for this project to have two overall references for the text's sentiment value.
 
-Please follow the below instructions on how to submit your answers.
+## Approach
+Firstly, the data was cleaned then parsed. The data that is given is rather noisy, so by removing punctuation and converting the entire text to lowercase, it is easier to analyze due to its uniformity. Furthermore, certain "stop" words were removed from the text. Stop words are common words that do not aid in sentiment analysis, such as "and", "or", "to", etc. This further cleans the data to be analyzed. Once the data was cleaned, a loop was used to iterate through the text and the TextBlob library was used to print out the polarity and subjectivity of every sentence in the text and pasted in the output to show a sentiment value for every sentence. The AFINN library was also used to keep track of the values per word and sentence. The AFINN score per sentence was not pasted due to its inability to portray the subjectivity of the sentence. Once the values per tool was totaled, the total value of the words, the average value of each sentence, and the average value per word are outputted. To further aid in the visualization of the data, a side-by-side graph is portrayed to show the value per sentence calculated by the two tools.
 
-1.  Create a  **public**  fork of this repo and name it  `ACM-Research-Coding-Challenge-F21`. To fork this repo, click the button on the top right and click the "Fork" button.
+## Results and Analysis
+The program calculated the sentiment scores through different categories as follows: 
+  - The overall sentiment score of the text through AFINN was `19.0` and `3.19269` through TextBlob, both meaning `positive`. This was done by summing the value of every word in the text together.
 
-2.  Clone the fork of the repo to your computer using  `git clone [the URL of your clone]`. You may need to install Git for this (Google it).
 
-3.  Complete the Challenge based on the instructions below.
+  -  Further results indicate that the average sentence score through AFINN was `0.59375` and `0.09977`through TextBlob, both meaning `slightly positive`. 
 
-4.  Submit your solution by filling out this [form](https://acmutd.typeform.com/to/zF1IcBGR).
+  - Finally, the average word scores for AFINN and TextBlob were `0.02802` and `0.00471` respectively, both meaning `barely positive but essentially neutral`. 
+  
+At first, I felt that these scores were not what I expected, but further deliberation induced me to agree with the results. I was initially inclined to disagree with the outcome due to the extreme negativity of the first paragraph, denoting a fierce argument between two characters with words such as "rage", "dreary chaos", "bleed", and "murderer". However, the sheer positivity of the last paragraph, describing an individual with an "excellent constitution", "ingenious" mind, "sound understanding and solid judgement", and shown a "good deal of respect". With the overwhelming positivity of the latter half of the text, the outcome was shifted to being positive overall. 
 
-## Assessment Criteria 
+A similar conclusion is derived when analyzing the graphs. Although varying overall, there is a slight pattern indicating a general increase in positivity as the text goes on. The graphs indicate that the most positive sentiment scores appear later on in the text and the more negative scores appear earlier, paralleling the above analysis. This is seen much clearer when evaluating the AFINN graph.
 
-Submissions will be evaluated holistically and based on a combination of effort, validity of approach, analysis, adherence to the prompt, use of outside resources (encouraged), promptness of your submission, and other factors. Your approach and explanation (detailed below) is the most weighted criteria, and partial solutions are accepted. 
+## Conclusion
+In essence, this program concluded that on average, the text is sentimentally positive.
 
-## [](https://github.com/ACM-Research/Coding-Challenge-S21#question-one)Question One
+ However, this data could have been affected by many factors as there was not a robust amount of training data for this text. When using AFINN and TextBlob, certain scenarios are not able to be counted for. For example, instances of sarcasm or negated text are not able to be appropriately scored due to the limitations of the tools used. Additionally, if a word is used that is not defined under the TextBlob or AFINN library, it may not be appropriately scored as well. This is seen by the numerous `0.0` scores throughout the program, even with objectively negative sentences such as "Carcasses bleed at the sight of the murderer!"
 
-[Sentiment analysis](https://en.wikipedia.org/wiki/Sentiment_analysis) is a natural language processing technique that computes a sentiment score for a body of text. This sentiment score can quantify how positive, negative, or neutral the text is. The following dataset in  `input.txt`  contains a relatively large body of text.
+However, by using a predefined library, the program is able to provide a decent insight into the sentiment score of the text as a whole in a quick manner without any training data.
 
-**Determine an overall sentiment score of the text in this file, explain what this score means, and contrast this score with what you expected.**  If your solution also provides different metrics about the text (magnitude, individual sentence score, etc.), feel free to add it to your explanation.   
+***Thank you for taking the time to look through this project. I learned many new concepts and had fun while doing so. I hope to be able to conduct more projects in the future with ACM.***
 
-**You may use any programming language you feel most comfortable. We recommend Python because it is the easiest to implement. You're allowed to use any library/API you want to implement this**, just document which ones you used in this README file. Try to complete this as soon as possible as submissions are evaluated on a rolling basis.
+## Libraries
 
-Regardless if you can or cannot answer the question, provide a short explanation of how you got your solution or how you think it can be solved in your README.md file. However, we highly recommend giving the challenge a try, you just might learn something new!
+- String
+- NLTK
+- Matplotlib
+- AFINN
+- TextBlob
 
+## Sources
+- [Emotion and Sentiment Analysis: A Practitioner’s Guide to NLP](https://www.kdnuggets.com/2018/08/emotion-sentiment-analysis-practitioners-guide-nlp-5.html)
+- [Word Lists and Sentiment Analysis](https://nealcaren.org/lessons/wordlists/)
+- [Sentiment analysis with tidy data](https://www.tidytextmining.com/sentiment.html)
+- [Stop words list (courtesy of GitHub user jimmyjames177414)](https://gist.github.com/sebleier/554280)
